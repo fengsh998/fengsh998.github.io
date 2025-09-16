@@ -2,5 +2,9 @@
 remote_theme: sighingnow/jekyll-gitbook
 syntax_highlighter_style: colorful
 title: fengsh998 Home Page
+longtitle: fengsh gitbook and logging.
 author: fengsh998
 description: 快来，在等你!
+
+top:
+  enable: true
