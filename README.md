@@ -35,3 +35,15 @@ author: 作者
 typora-root-url: ..
 ---
 ```
+开启评论功能：
+把_config.yml 打开，开启comments的provider设置，默认提供三个评论系统[disqus | utterances | giscus] 根据自己选择对应配置即可开启
+如
+comments:
+  provider: giscus
+  ...
+  giscus:
+    repo: 仓库名eg:fengsh998/fengsh998.github.io
+    repo_id: 仓库ID
+    category: 分类
+    category_id: 分类ID
+  
