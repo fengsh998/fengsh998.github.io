@@ -20,7 +20,8 @@ jekyll的标准结构说明
  |     |---about.md       //关于（需要自己编辑）
  |-- assets           //数字资产(主要存放_posts中的文档编写时用的比图片，视频，及xmind,drawio等流程资源图)
  |     |
- |     |---media/images 根据自已的需要区可建文件夹进行分类存放资源。如何引用如：在MD中 ![](/assets/media/images/xxx/xx.png)
+ |     |---media/images   //根据自已的需要区可建文件夹进行分类存放资源。如何引用如：在MD中 ![](/assets/media/images/xxx/xx.png)
+ |     |---img/favicons/  //这里存放的是站点的图标的如favicon-16x16.png或favicon-32x32.png
 ```
 对于_post中的.md文件必须开头以
 
