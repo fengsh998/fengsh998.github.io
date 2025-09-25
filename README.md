@@ -36,7 +36,10 @@ typora-root-url: ..
 ---
 ```
 开启评论功能：
-把_config.yml 打开，开启comments的provider设置，默认提供三个评论系统[disqus | utterances | giscus] 根据自己选择对应配置即可开启
+
+把_config.yml 打开，开启comments的provider设置，
+默认提供三个评论系统[disqus | utterances | giscus] 根据自己选择对应配置即可开启
+
 如
 comments:
   provider: giscus
@@ -47,3 +50,6 @@ comments:
     category: 分类
     category_id: 分类ID
   
+关于页的修改，只需要把about.md中的进行修改内容即可。
+> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
+{: .prompt-tip }
