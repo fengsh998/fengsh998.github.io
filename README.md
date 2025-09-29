@@ -65,6 +65,10 @@ class J {
 ...
 {% endhighlight %}
 ```
+
+markdown语法参考
+[速查](https://markdown.com.cn/cheat-sheet.html)
+[扩展](https://theme-plume.vuejs.press/article/mcgayb5w/)
   
 关于页的修改，只需要把about.md中的进行修改内容即可。
 > Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
