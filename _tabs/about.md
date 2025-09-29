@@ -39,4 +39,20 @@ order: 4
 
 ---
 
+> 备注信息
+{: .prompt-note }
+
+> 普通信息。
+{: .prompt-info }
+
+> 这是一个有用的提示。
+{: .prompt-tip }
+
+> 警告：这是一个危险操作。
+{: .prompt-warning }
+
+> 危险：此操作不可逆！
+{: .prompt-danger }
+
+
 *最后更新时间：2025年9月*
