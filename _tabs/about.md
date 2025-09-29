@@ -39,9 +39,6 @@ order: 4
 
 ---
 
-> 备注信息
-{: .note }
-
 > 普通信息。
 {: .prompt-info }
 
@@ -53,12 +50,6 @@ order: 4
 
 > 危险：此操作不可逆！
 {: .prompt-danger }
-
-> 操作成功！
-{: .prompt-success }
-
-> 错误：请检查输入。
-{: .prompt-error }
 
 
 *最后更新时间：2025年9月*
