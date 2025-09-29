@@ -73,3 +73,17 @@ markdown语法参考
 关于页的修改，只需要把about.md中的进行修改内容即可。
 > Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
 {: .prompt-tip }
+
+```
+> 普通信息。
+{: .prompt-info }
+
+> 这是一个有用的提示。
+{: .prompt-tip }
+
+> 警告：这是一个危险操作。
+{: .prompt-warning }
+
+> 危险：此操作不可逆！
+{: .prompt-danger }
+```
