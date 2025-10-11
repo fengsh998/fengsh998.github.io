@@ -55,8 +55,10 @@ comments:
 
 高亮的用法，原来markdown 的写法是使用```语种的方式如：
 ```java
+```java
 class J {
 }
+```
 ```
 然而github pages _config.yml中配置使用的是Rouge高亮，查看[支持语种](https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers)
 在此模板中高亮的写法
@@ -93,3 +95,17 @@ markdown语法参考
 > 危险：此操作不可逆！
 {: .prompt-danger }
 ```
+
+markdown 中使用Emoji符号：
+
+[Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
+
+[emojipedia](https://emojipedia.org)
+
+markdown 中使用特殊符号HTML对照表：
+
+[特殊符号](https://tool.chinaz.com/tools/htmlchar.aspx)
+
+[特殊符号2](https://www.json.cn/document/html-entity/)
+
+
