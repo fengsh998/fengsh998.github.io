@@ -54,12 +54,10 @@ comments:
 输入你的仓库名检测一下是否OK。如：fengsh998/fengsh998.github.io，然后进行对应的Discussions的配置即可，不懂配的参考：https://www.lixueduan.com/posts/blog/02-add-giscus-comment/
 
 高亮的用法，原来markdown 的写法是使用```语种的方式如：
-～～～
 ```java
 class J {
 }
 ```
-～～～
 然而github pages _config.yml中配置使用的是Rouge高亮，查看[支持语种](https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers)
 在此模板中高亮的写法
 ```
