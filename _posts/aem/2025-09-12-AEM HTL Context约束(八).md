@@ -11,12 +11,12 @@ typora-root-url: ..
 
 ```html
 <!--/* Scripts */-->
-<a href="#" onclick="${myFunctionName @ context='scriptToken'}()">Link</a>
+<a href="#whatever" onclick="${myFunctionName @ context='scriptToken'}()">Link</a>
 <script>var ${myVarName @ context="scriptToken"}="Bar";</script>
 <script>var bar='${someText @ context="scriptString"}';</script>
  
 <!--/* Styles */-->
-<a href="#" style="color: ${colorName @ context='styleToken'};">Link</a>
+<a href="#whatever" style="color: ${colorName @ context='styleToken'};">Link</a>
 <style>
     a.${className @ context="styleToken"} {
         font-family: '${fontFamily @ context="styleString"}', sans-serif;
@@ -29,12 +29,12 @@ typora-root-url: ..
 __示例分析说明：__
 
 ```html
-<a href="#" onclick="${myFunctionName @ context='scriptToken'}()">Link</a>
+<a href="#whatever" onclick="${myFunctionName @ context='scriptToken'}()">Link</a>
 ```
 
 __说明：__
 
-<span style="color:red;">myFunctionName</span> 是一个动态的 JavaScript 函数名，通过 <span style="color:red;">@ context='scriptToken' </span>确保输出是安全的函数名（如 <span style="color:red;">myFunction</span>。最终输出可能是 <span style="color:red;"><a href="#whatever" onclick="myFunction()">Link</a></span>。
+<span style="color:red;">myFunctionName</span> 是一个动态的 JavaScript 函数名，通过 <span style="color:red;">@ context='scriptToken' </span>确保输出是安全的函数名（如 <span style="color:red;">myFunction</span>。最终输出可能是 `<a href="#whatever" onclick="myFunction()">Link</a>`。
 
 __作用：__
 
@@ -69,7 +69,7 @@ __作用：__
 
 __说明：__
 
-colorName 是一个动态的 CSS 颜色值，@ context='styleToken' 确保它是安全的 CSS 值，如 red 或 blue。输出可能是 <a href="#whatever" style="color: red;">Link</a>。
+colorName 是一个动态的 CSS 颜色值，@ context='styleToken' 确保它是安全的 CSS 值，如 red 或 blue。输出可能是 `<a href="#whatever" style="color: red;">Link</a>`。
 
 __作用：__
 
