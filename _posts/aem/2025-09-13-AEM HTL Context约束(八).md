@@ -556,6 +556,13 @@ __用法：__
 ![img](/assets/articles/aem/htl/htl-7.jpg)
 
 
+**参考：**
+
+[【HTL规范】](https://github.com/adobe/htl-spec/blob/master/SPECIFICATION.md#1-expression-language-syntax-and-semantics)
+
+[【HTL教程中文】](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-htl/content/specification)
+
+[【HTL教程英文】](https://experienceleague.adobe.com/en/docs/experience-manager-htl/content/overview)
 
 
 
