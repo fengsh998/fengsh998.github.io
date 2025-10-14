@@ -531,8 +531,29 @@ __用法：__
 7. data-sly-list, data-sly-repeat
 8. data-sly-attribute
 
+## 工具
+安装HTL工具以方便学习：https://github.com/adobe/aem-htl-repl
 
+1、下载构建好稳定版本包(根据连接找最新版本哈)：Download the built package: com.adobe.granite.sightly.repl-1.0.4.zip
 
+2、在本地的AEM的启动实的包管理中上传：
+
+![img](/assets/articles/aem/htl/htl-1.jpg)
+
+![img](/assets/articles/aem/htl/htl-1.jpg)
+
+![img](/assets/articles/aem/htl/htl-2.jpg)
+
+![img](/assets/articles/aem/htl/htl-3.jpg)
+
+![img](/assets/articles/aem/htl/htl-4.jpg)
+
+![img](/assets/articles/aem/htl/htl-5.jpg)
+
+![img](/assets/articles/aem/htl/htl-6.jpg)
+
+打开：http://localhost:4502/content/repl.html
+![img](/assets/articles/aem/htl/htl-7.jpg)
 
 
 
