@@ -11,12 +11,12 @@ typora-root-url: ..
 
 ```html
 <!--/* Scripts */-->
-<a href="#whatever" onclick="${myFunctionName @ context='scriptToken'}()">Link</a>
+<a href="#" onclick="${myFunctionName @ context='scriptToken'}()">Link</a>
 <script>var ${myVarName @ context="scriptToken"}="Bar";</script>
 <script>var bar='${someText @ context="scriptString"}';</script>
  
 <!--/* Styles */-->
-<a href="#whatever" style="color: ${colorName @ context='styleToken'};">Link</a>
+<a href="#" style="color: ${colorName @ context='styleToken'};">Link</a>
 <style>
     a.${className @ context="styleToken"} {
         font-family: '${fontFamily @ context="styleString"}', sans-serif;
@@ -29,7 +29,7 @@ typora-root-url: ..
 __示例分析说明：__
 
 ```html
-<a href="#whatever" onclick="${myFunctionName @ context='scriptToken'}()">Link</a>
+<a href="#" onclick="${myFunctionName @ context='scriptToken'}()">Link</a>
 ```
 
 __说明：__
