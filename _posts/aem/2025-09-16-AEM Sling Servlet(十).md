@@ -28,7 +28,7 @@ Servlet 用于扩展服务器功能的类主要接口能力，详见的HTTP请�
 ![img](/assets/articles/aem/sling/url.png)
 上图是通过Sling:resourceType的方式进行解释URL中命中规则。
 
-![img](/assets/articles/aem/sling/sling-cmp.png)
+![img](/assets/articles/aem/sling/sling-cmp.jpeg)
 此为通过Sling:resourceType指定的方式一步步找到最终的资源。
 
 ### FAQ访问示例：
