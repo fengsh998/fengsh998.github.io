@@ -92,6 +92,13 @@ property=layout
 property.value=responsiveGrid
 ```
 
+```shell
+path=/content
+1_property=sling:resourceType
+1_property.value=wetrain/components/teaser
+1_property.operation=like
+```
+
 **多值查询**, 如查询属性jcr:title，存在多个值时（eg: en, us）。
 
 关键词：***N_value***
@@ -241,7 +248,33 @@ selective:
 
 ## group
 
-组查询
+组查询: 支持多路径，多组件查询。
+
+关键词：***p.or*** 
+
+组合的或条件
+
+```shell
+#查询出资源结点属性jcr:title值为Epic Journey 或 属性navTitle值为My Page的数据
+path=/content
+group.p.or=true
+group.1_property=jcr:title
+group.1_property.value=Epic Journey
+group.2_property=navTitle
+group.2_property.value=My Page
+```
+
+关键词：***p.not***
+
+使组是否生效
+
+关键词：***<谓词>***
+
+即可以通过group.<谓词>的方式来拼接。
+
+关键词：***<N_谓词>***
+
+当多个谓词并存时，可以能过“序号_”进行区分，如group.1_property,group.2_property
 
 
 
@@ -253,5 +286,5 @@ selective:
 
 [【谓词-英文】](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/developing/platform/query-builder/querybuilder-predicate-reference)
 
-![img](/assets/articles/aem/qb/qb-.jpg)
+
 
