@@ -119,4 +119,10 @@ markdown 中使用特殊符号HTML对照表：
 
 [特殊符号2](https://www.json.cn/document/html-entity/)
 
+markdown 数学物理公式速查
+
+[公式](https://www.cnblogs.com/zbzcDZF/p/16540630.html)
+
+[LaTex公式](https://mp.weixin.qq.com/s/rAut9IAmBFtSW8iv38OOWA)
+
 
