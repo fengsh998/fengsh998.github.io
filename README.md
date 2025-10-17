@@ -120,6 +120,15 @@ markdown 中使用特殊符号HTML对照表：
 [特殊符号2](https://www.json.cn/document/html-entity/)
 
 markdown 数学物理公式速查
+当前模块如果要正确解释公式，需要在文章的标题加math: true,才能正解如：
+
+```
+---
+title: xxx
+..
+math: true
+---
+```
 
 [公式](https://www.cnblogs.com/zbzcDZF/p/16540630.html)
 
