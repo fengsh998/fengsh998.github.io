@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "站点资源收集"
-categories: 外部连接
+categories: 外部链接
 tags: 站点资源
 author: 作者
 typora-root-url: ..
