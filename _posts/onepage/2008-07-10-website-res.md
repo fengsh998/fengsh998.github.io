@@ -28,3 +28,16 @@ typora-root-url: ..
 
 
 # 维修佬
+## 查芯
+[【芯片查询】](https://www.microchip.com/)[【芯查查】](https://www.xcc.com) [【findchips】](https://www.findchips.com)[【得捷电子】](https://www.digikey.com/ )
+
+## 买零配件
+[【octopart】](https://octopart.com/zh)
+[【立创】](https://lcsc.com/)
+
+## 芯片制造商
+[【TI芯片】](https://www.ti.com/)[【ST芯片】](https://www.st.com/)[【ADI芯片】](https://www.analog.com/)
+
+## 专业数据查询
+[【DataSheet】](https://www.datasheetcatalog.com/)[【AllDataSheet】](https://www.alldatasheet.com/)
+
