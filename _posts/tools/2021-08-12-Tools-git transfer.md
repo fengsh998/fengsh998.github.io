@@ -3,7 +3,7 @@ layout: post
 title: "Git迁移脚本"
 categories: 工具
 tags: 代码工具
-author: 作者
+author: fengsh998
 typora-root-url: ..
 ---
 

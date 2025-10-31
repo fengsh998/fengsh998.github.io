@@ -3,7 +3,7 @@ layout: post
 title: "技术学习栈(持续收集更新...)"
 categories: 外部链接
 tags: 三方
-author: 作者
+author: fengsh998
 typora-root-url: ..
 ---
 
