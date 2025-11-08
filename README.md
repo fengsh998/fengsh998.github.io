@@ -33,6 +33,7 @@ categories: 分类名(自定义，比如Android, iOS),当有多个.md的分类�
 tags: 档签，用于检索用，比如C++，JAVA，等。
 author: 作者
 typora-root-url: ..
+date: 2023-10-27 14:30:00 +0800 //用于排序
 ---
 ```
 开启评论功能：
@@ -106,6 +107,10 @@ markdown语法参考
 > 危险：此操作不可逆！
 {: .prompt-danger }
 ```
+
+关于_posts中的的文章排序：
+1、按文件名的日期排序，如果日期相同的情况下，安title的中的首字A-Z排，或ASCK码排。
+2、在对应的文章中添加date字段进行。
 
 markdown 中使用Emoji符号：
 
