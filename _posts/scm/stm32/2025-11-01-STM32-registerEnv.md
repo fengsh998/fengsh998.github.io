@@ -369,6 +369,139 @@ void SystemClock_LSE_Config_Def(void) {
 >	示例： 如果要使用 GPIOA，必须设置 RCC->APB2ENR |= (1U << 2);（Bit 2 是 IOPFEN，即 GPIOA 时钟使能）。
 {: .prompt-danger }
 
+## GPIO寄存器
+注意寄存器中的x 可以有A~G组，手册中只描述一组就可，其它都是一样的设置。
+
+### GPIO_CRL/GPIO_CRH寄存器
+**GPIOx_CRL**: 配置0 ~ 7 Pin 的GPIO的每个pin脚输出/入模式(CNF[1:0])和输出频率(MODE[1:0])一共4位
+
+**GPIOx_CRH**: 配置8 ~ 15 pin的每个pin脚CNF和MODE
+
+![img](/assets/articles/ic/stm32/cuberegister/reg_gpio_crl.jpg)
+
+![img](/assets/articles/ic/stm32/cuberegister/reg_gpio_crh.jpg)
+
+**CNF[1:0] 值说明**：
+
+在<font color="red">输入模式</font>下(MODE[1:0]=00)
+* 00: 模拟信号输入
+* 01: 悬空输入模式
+* 10: 上拉/下拉输入模式
+* 11: 保留
+
+在<font color="red">输出模式</font>下(MODE[1:0]>00)
+* 00: 通用推挽输出模式
+* 01: 通用开漏输出模式
+* 10: 复用功能推挽输出模式
+* 11: 复用功能开漏输出模式
+
+**MODE[1:0]值说明**：
+* 00: 输入模式(复位后的状态)
+* 01: 输出模式，最大速度为10MHz
+* 10: 输出模式，最大速度为2MHz
+* 11: 输出模式，最大速度为50MHz
+
+通常我们配置一个Pin脚为0x03 = 0011, 即配置为通用推挽输出，且速率为50MHz
+
+### GPIO_IDR寄存器
+![img](/assets/articles/ic/stm32/cuberegister/reg_gpio_idr.jpg)
+
+输入数据寄存器GPIOx_IDR,[15:0]这些位为只读并只能以字(16位)的形式读出。读出的值为对应I/O口的状态。
+
+什么时候用IDR？
+* 读取按键状态
+* 读取传感器电平信号（如光敏、霍尔、限位开关等）
+* 软件模拟协议时读取MISO、SCL反馈、外部中断触发等
+* 检测外部设备状态
+
+### GPIO_ODR寄存器
+![img](/assets/articles/ic/stm32/cuberegister/reg_gpio_odr.jpg)
+
+这些位可读可写并只能以字(16位)的形式操作。
+注：对GPIOx_BSRR(x = A…E)，可以分别地对各个ODR位进行独立的设置/清除。
+
+如直接写：GPIOA->ODR = 0x0020;    // PA5 输出高电平
+
+|引脚|二进制位|十六进制数值|说明|
+|---|---|---|---|
+|PA0|0000 0000 0000 0001|0x0001|第0位 = 1|
+|PA1|0000 0000 0000 0010|0x0002|第1位 = 1|
+|PA2|0000 0000 0000 0100|0x0004|第2位 = 1|
+|PA3|0000 0000 0000 1000|0x0008|第3位 = 1|
+|PA4|0000 0000 0001 0000|0x0010|第4位 = 1|
+|PA5|0000 0000 0010 0000|0x0020|第5位 = 1|
+|PA6|0000 0000 0100 0000|0x0040|第6位 = 1|
+|PA7|0000 0000 1000 0000|0x0080|第7位 = 1|
+|PA8|0000 0001 0000 0000|0x0100|第8位 = 1|
+
+但通操不直接操作ODR，这个比较慢，写整个16位，所有引脚都受影响，不推荐直接写，而是使用BSRR来操作，只影响你写的那些位，其他引脚完全不动。
+
+> IDR 和 ODR 是“状态寄存器”，硬件外设和软件都依赖它们来知道引脚当前真实电平；
+{: .prompt-tips }
+
+### GPIO_BSRR/GPIO_BRR寄存器
+
+![img](/assets/articles/ic/stm32/cuberegister/reg_gpio_bsrr.jpg)
+
+![img](/assets/articles/ic/stm32/cuberegister/reg_gpio_brr.jpg)
+
+**BSRR:** 
+
+注意：这些位只能写入，并且只能以16位的形式操作。
+
+BR[31:16]:
+* 0: 对应的ODR位不产生影响
+* 1: 对应的ODR位被置为0
+
+BS[15:0]:
+* 0: 对应的ODR位不产生影响
+* 1: 对应的ODR位设置为1
+
+因为ODR一共使用的是16位，对应的也就是Px0~Px15 个pin脚，而正好BSRR中的高16位作为ODR的清0置低电平区，低16位作为ODR对应的置1高电平区
+
+
+如GPIOC->BSRR = GPIO_BSRR_BR13; // GPIO_BSRR_BR13 = (0x1UL<<29U) 将GPIO的C组13pin脚置为低电平。
+
+二进制为GPIOC->BSRR = 0010 0000 0000 0000 0000 0000 0000 0000
+
+GPIOC->BSRR = GPIO_BSRR_BS13; // GPIO_BSRR_BS13 = (0x1UL<<13U) 将GPIO的C组13pin脚置为高电平。
+
+二进制为GPIOC->BSRR = 0000 0000 0000 0000 0010 0000 0000 0000
+
+
+**BRR:**
+
+这也是用来写入，16位的操作方式, 这个是快速来操作某个Pin脚重置为低电平用。
+
+BR[15:0]: 0 时对应的ODR位不产生影响，1时清除对应的ODR位重置为0，即设为低电平
+
+
+`GPIOC->BRR  = GPIO_PIN_13; 等价于 GPIOC->BSRR = GPIO_BSRR_BR13;`
+
+GPIO_PIN_13 = 0x2000 = 0010 0000 0000 0000 = 第13位为1
+
+HAL库中定义
+
+    #define GPIO_PIN_0                 ((uint16_t)0x0001)  /* 0x0001 */
+    #define GPIO_PIN_1                 ((uint16_t)0x0002)  /* 0x0002 */
+    #define GPIO_PIN_2                 ((uint16_t)0x0004)  /* 0x0004 */
+    #define GPIO_PIN_3                 ((uint16_t)0x0008)  /* 0x0008 */
+    #define GPIO_PIN_4                 ((uint16_t)0x0010)  /* 0x0010 */
+    #define GPIO_PIN_5                 ((uint16_t)0x0020)  /* 0x0020 */
+    #define GPIO_PIN_6                 ((uint16_t)0x0040)  /* 0x0040 */
+    #define GPIO_PIN_7                 ((uint16_t)0x0080)  /* 0x0080 */
+    #define GPIO_PIN_8                 ((uint16_t)0x0100)  /* 0x0100 */
+    #define GPIO_PIN_9                 ((uint16_t)0x0200)  /* 0x0200 */
+    #define GPIO_PIN_10                ((uint16_t)0x0400)  /* 0x0400 */
+    #define GPIO_PIN_11                ((uint16_t)0x0800)  /* 0x0800 */
+    #define GPIO_PIN_12                ((uint16_t)0x1000)  /* 0x1000 */
+    #define GPIO_PIN_13                ((uint16_t)0x2000)  /* 0x2000 */   
+    #define GPIO_PIN_14                ((uint16_t)0x4000)  /* 0x4000 */
+    #define GPIO_PIN_15                ((uint16_t)0x8000)  /* 0x8000 */
+    #define GPIO_PIN_All               ((uint16_t)0xFFFF)  /* 所有引脚 */
+
+> BSRR 和 BRR 是“命令寄存器”，只给软件（CPU）提供一个快速、原子、安全修改 ODR 的方式。
+{: .prompt-tips }
 
 ## 编写一个延时函数
 
