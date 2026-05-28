@@ -112,6 +112,7 @@ markdown语法参考
 
 关于SVG的图片显示,必须设置好大小，否则看起来像没有显示一样
 
+```
 示例一：
 <img src="/assets/articles/xxxx.svg" 
      alt="Demo" 
@@ -125,6 +126,7 @@ markdown语法参考
 关于_posts中的的文章排序：
 1、按文件名的日期排序，如果日期相同的情况下，安title的中的首字A-Z排，或ASCK码排。
 2、在对应的文章中添加date字段进行。
+```
 
 markdown 中使用Emoji符号：
 
