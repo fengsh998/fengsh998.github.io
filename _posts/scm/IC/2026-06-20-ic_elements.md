@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "基本元件特性"
+math: true
 categories: 电路
 tags: 电路设计
 author: fengsh998
