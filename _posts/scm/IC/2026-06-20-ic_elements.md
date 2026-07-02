@@ -70,6 +70,18 @@ $$ V = V_L + V_R = L\cdot\frac{di}{dt} + iR $$
 
 整理后得： $ \frac{di}{dt} = \frac{V-iR}{L} = -\frac{R}{L}(i-\frac{V}{R}) $
 
+移项：$ \frac{di}{i-\frac{V}{R}} = -\frac{R}{L}dt $
+
+两边同时积分： $ \int\frac{1}{i-\frac{V}{R}}di = \int-\frac{R}{L}dt $
+
+根据概念：
+* 核心积分公式: $ \int\frac{1}{u}du = ln|u| + C $
+在微积分中，有一个基础规则：任何形如 $ \frac{1}{x} $ 的函数的原函数（不定积分），就是 ln∣x∣。
+
+因此 $ \int\frac{1}{i-\frac{V}{R}}di $ 令 $ u = i - \frac{V}{R} $ 那么，对u求导则得到 $ d(u) = d(i - \frac{V}{R}) => du = di - d(\frac{V}{R}) $ ,因任何常数的导数为0所以，最终得到 du = di, 固原来的左边：$ \int\frac{1}{i-\frac{V}{R}}di = \int\frac{1}{u}di = \int\frac{1}{u}du = ln|u| + C $ 将u代入，最终左边变为：$ ln(i - \frac{V}{R}) + C $
+
+
+
 * * 当最流最大时($ I_max $): 当$ t -> \infty $ 时, $ i(t) = \frac{V}{R} = \frac{5V}{1000\Omega} = 5mA $
 * * 时间常数($ \tau $):衡量电路响应速度的物理量,$ \tau = \frac{L}{R} = \frac{1H}{1000\Omega} = 0.001s = 1ms $
    计算结果： t=5×1ms=5ms。
