@@ -78,8 +78,26 @@ $$ V = V_L + V_R = L\cdot\frac{di}{dt} + iR $$
 * 核心积分公式: $ \int\frac{1}{u}du = ln|u| + C $
 在微积分中，有一个基础规则：任何形如 $ \frac{1}{x} $ 的函数的原函数（不定积分），就是 ln∣x∣。
 
-因此 $ \int\frac{1}{i-\frac{V}{R}}di $ 令 $ u = i - \frac{V}{R} $ 那么，对u求导则得到 $ d(u) = d(i - \frac{V}{R}) => du = di - d(\frac{V}{R}) $ ,因任何常数的导数为0所以，最终得到 du = di, 固原来的左边：$ \int\frac{1}{i-\frac{V}{R}}di = \int\frac{1}{u}di = \int\frac{1}{u}du = ln|u| + C $ 将u代入，最终左边变为：$ ln(i - \frac{V}{R}) + C $
+因此 $ \int\frac{1}{i-\frac{V}{R}}di $ 令 $ u = i - \frac{V}{R} $ 
+那么，对u求导则得到 $ d(u) = d(i - \frac{V}{R}) => du = di - d(\frac{V}{R}) $ ,因任何常数的导数为0所以，最终得到 du = di。 
 
+侧积分的左边：$ \int\frac{1}{i-\frac{V}{R}}di $ = $ \int\frac{1}{u}di = \int\frac{1}{u}du $ = ln|u| + C 。 将u代入，最终左边变为：$ ln(i - \frac{V}{R}) + C $
+
+现在再来看右边的不定积分： $ \int-\frac{R}{L}dt $
+
+根据 $ \intk\cdotf(t)dt=k\cdot\intf(t)dt $ ,这里 $ k = -\frac{R}{L} , f(t) = 1 $
+
+所以变为 $ -\frac{R}{L}\cdot\int1dt $ , 常数的积分 $ \int1dt = t +C $
+
+最终右边变换为 $ -\frac{R}{L}\cdot(t+C) $
+
+到些原积分最终变为：
+
+$$ \int\frac{1}{i-\frac{V}{R}}di = \int-\frac{R}{L}dt => ln(i - \frac{V}{R}) + C = -\frac{R}{L}\cdot(t+C) $$
+
+精简后得到：
+
+  $$ ln(i - \frac{V}{R}) = -\frac{R}{L}t + C $$
 
 
 * * 当最流最大时($ I_max $): 当$ t -> \infty $ 时, $ i(t) = \frac{V}{R} = \frac{5V}{1000\Omega} = 5mA $
