@@ -62,7 +62,7 @@ $$ V = L⋅ \frac{di}{dt} $$
 直流电源5V，负载R=1K，电感L= 1H，求电流最大时的爬升时间？
 在电路合闸瞬间，电感相当于“断路”（电流为 0），电流从 0 开始增长。公式为：
 
-$$ i(t) = \frac{V}{R}(1-e^{-\frac{R}{L}t}) $$
+<font color=red>$$ i(t) = \frac{V}{R}(1-e^{-\frac{R}{L}t}) $$</font>
 
 公式推导：电感电路的瞬态分析基于基尔霍夫电压定律（KVL）：在回路中，电源电压等于电感电压与电阻电压之和。
 
@@ -84,7 +84,7 @@ $$ V = V_L + V_R = L\cdot\frac{di}{dt} + iR $$
 
 侧积分的左边：$ \int\frac{1}{i-\frac{V}{R}}di = \int\frac{1}{u}di $ 
 
-$ \int\frac{1}{u}du $ = ln|u| + C 。 
+$ \int\frac{1}{u}du = ln|u| + C $ 。 
 
 将u代入，最终左边变为：$ ln(i - \frac{V}{R}) + C $
 
@@ -129,15 +129,17 @@ $$ 0 = \frac{V}{R} + A \cdot e^{-\frac{R}{L} \cdot 0} $$
 
 第四步：代回原方程 $ i(t) = \frac{V}{R} + (-\frac{V}{R} \cdot e^{-\frac{R}{L}t}) $
 
-终得出公式
+终得出上面的公式。
 
 * * 当最流最大时($ I_max $): 当$ t -> \infty $ 时, $ i(t) = \frac{V}{R} = \frac{5V}{1000\Omega} = 5mA $
 * * 时间常数($ \tau $):衡量电路响应速度的物理量,$ \tau = \frac{L}{R} = \frac{1H}{1000\Omega} = 0.001s = 1ms $
    计算结果： t=5×1ms=5ms。
    
-** 当电感达到稳定态时，这时就和导线一样，电流最大此时理论最大的电流为 $ I_max = \frac{V}{R} $
+* * 当电感达到稳定态时，这时就和导线一样，电流最大此时理论最大的电流为 $ I_max = \frac{V}{R} $ 最后关系式为： $ i(t) = I_max(1 - e^{-\frac{t}{\tau}}) $
 
-最后关系式为： $ i(t) = I_max(1 - e^{-\frac{t}{\tau}}) $
+因为指数函数 $ e^{−x} $ 是随着 x 增大而迅速衰减的。$ e^{−\frac{t}{\tau}} $ 中的t是在指数位置。要
+
+想Imax最大那 $ e^{-\frac{t}{\tau}} $ 无限逼近于0，即 $ e^{-\frac{R}{L}t} \lim -> 0 $
 
 ### 电容
 电路符号：C，有极/无极性
